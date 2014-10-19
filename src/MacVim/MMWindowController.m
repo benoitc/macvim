@@ -1137,13 +1137,13 @@
         [window setStyleMask:([window styleMask] | NSFullScreenWindowMask)];
         [[vimView tabBarControl] setStyleNamed:@"Unified"];
         [self updateTablineSeparator];
-        [self maximizeWindow:fullScreenOptions];
+//        [self maximizeWindow:fullScreenOptions];
 
         [NSAnimationContext runAnimationGroup:^(NSAnimationContext *context) {
             [context setDuration:0.5*duration];
             [[window animator] setAlphaValue:1];
         } completionHandler:^{
-            // Do nothing
+            [self maximizeWindow:fullScreenOptions];
         }];
     }];
 }
